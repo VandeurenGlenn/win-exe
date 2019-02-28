@@ -1,5 +1,5 @@
 # win-exe [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> Windows exe builder and setup tools
+> Windows setup builder and tooling
 
 ## Installation
 
@@ -10,9 +10,18 @@ $ npm install --save win-exe
 ## Usage
 
 ```js
-const winExe = require('win-exe');
+const exe = require('win-exe');
 
-winExe('Rainbow');
+exe({
+  scripts: ['path/to/iss', 'other/path/to/iss'] // absolute or relative to cwd
+});
+
+// or when signing
+exe({
+  pfx: 'path/to/pfx' // absolute or relative to cwd
+  name: 'signtool',
+  scripts: ['path/to/iss', 'other/path/to/iss'] // absolute or relative to cwd
+});
 ```
 ## License
 
