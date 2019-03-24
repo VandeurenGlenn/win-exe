@@ -10,8 +10,8 @@ let _package;
 let spinner;
 
 
-const log = (text, success = false) => {
-  if (success) return spinner.succeed(text);
+const log = (text, type = false) => {
+  if (type) return spinner[type](text);
   if (spinner) spinner.text = text;
   else spinner = ora(text).start();
 }
@@ -95,9 +95,10 @@ module.exports = async options => {
       }
 
       await child(args, options.verbose);
-      log('build setup', true);
+      log('build setup', 'succeed');
     }
   } catch (e) {
+    log('build setup', 'fail');
     console.error(e);
   }
 }
