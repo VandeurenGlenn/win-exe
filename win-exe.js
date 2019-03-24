@@ -60,6 +60,8 @@ const validateOrTransformOptions = async options => {
     packageOptions.password = options.password;
     options = packageOptions;
   }
+  const possibleIndex = process.argv.indexOf('password');
+  if (!options.password) possibleIndex !== -1 ? process.argv[possibleIndex] : false;
   const { name, password, pfx, scripts } = options;
   if (pfx && !password) throw 'a pfx filename is passed, expected password to be defined';
   if (pfx && !scripts) {
