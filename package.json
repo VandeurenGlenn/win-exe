@@ -26,6 +26,6 @@
   },
   "repository": "VandeurenGlenn/win-exe",
   "dependencies": {
-    "ora": "^3.2.0"
+    "ora": "^6.0.1"
   }
 }
